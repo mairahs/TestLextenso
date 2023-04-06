@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Voir l'établissement {{etablissement.siret}}{% endblock %}
+
+{% block body %}
+
+ <div class='container'>
+    {% for adresse in adresses %}
+    <div class="card">
+        <h5 class="card-header"></h5>
+            <div class="card-body">
+                <h5 class="card-title">Siret {{ adresse.siret }}</h5>
+                <h5 class="card-title">Adresses de l'établisssement: </h5>
+                {% for element in adresse.etablissement.adresses %}
+                    {{element.id}}   
+                    {{element.siret}}
+                    {{element.siege}}
+                {% endfor %}
+            </div>
+    </div> 
+    {% endfor %}
+ </div>  
+{% endblock %}

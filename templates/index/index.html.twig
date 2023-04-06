@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Accueil{% endblock %}
+
+{% block body %}
+
+ <div class='container'>
+    {% for etablissement in etablissements %}
+    <div class="card">
+        <h5 class="card-header">Siren {{ etablissement.siren }}</h5>
+            <div class="card-body">
+                <h5 class="card-title">Siret {{ etablissement.siret }}</h5>
+                <a href="{{ path('app_voir', {'id': etablissement.id }) }}" class="btn btn-primary">Voir cet établissement</a>
+            </div>
+    </div> 
+    {% endfor %}
+ </div>  
+{% endblock %}

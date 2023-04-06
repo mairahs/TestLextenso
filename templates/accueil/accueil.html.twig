@@ -1,0 +1,19 @@
+
+{% extends 'base.html.twig' %}
+
+{% block title %} Accueil{% endblock %}
+
+{% block body %}
+
+ <div class='container'>
+    <div class="container">
+     <p>Renseignez le numéro de SIREN recherché pour obtenir des informations sur les établissements et les adresses</p>
+     <div class="form-group">
+        {{ form_start(formulaire, {attr: {'novalidate': 'novalidate'}}) }}
+            {{ form_errors(formulaire)}}
+            {{form_widget(formulaire)}}
+        {{ form_end(formulaire)}}
+    </div>
+</div>
+ </div>  
+{% endblock %}

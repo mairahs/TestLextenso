@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Voir l'adresse {{adresse.siret}}{% endblock %}
+
+{% block body %}
+
+ <div class='container'>
+    <div class="card">
+        <h5 class="card-header"></h5>
+            <div class="card-body">
+                <h5 class="card-title">Siret {{ adresse.siret }}</h5>
+                <h5 class="card-title">Etablissement: </h5>
+                {{ adresse.etablissement.siret}}
+               
+            </div>
+    </div> 
+ </div>  
+{% endblock %}
