@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\AdresseRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: AdresseRepository::class)]
 class Adresse
@@ -14,7 +15,12 @@ class Adresse
     private int $id;
 
     #[ORM\Column]
-    private int $siret;
+    #[Assert\NotBlank]
+    #[Assert\Type('string')]
+    #[Assert\EqualTo(
+        value: 14,
+    )]
+    private string $siret;
 
     #[ORM\Column]
     private bool $siege;
@@ -28,12 +34,12 @@ class Adresse
         return $this->id;
     }
 
-    public function getSiret(): int
+    public function getSiret(): string
     {
         return $this->siret;
     }
 
-    public function setSiret(int $siret): self
+    public function setSiret(string $siret): self
     {
         $this->siret = $siret;
 

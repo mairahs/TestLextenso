@@ -16,10 +16,20 @@ class Etablissement
     private int $id;
 
     #[ORM\Column]
-    private int $siren;
-
+    #[Assert\NotBlank]
+    #[Assert\Type('string')]
+    #[Assert\EqualTo(
+        value: 9,
+    )]
+    private string $siren;
+    
     #[ORM\Column]
-    private int $siret;
+    #[Assert\NotBlank]
+    #[Assert\Type('string')]
+    #[Assert\EqualTo(
+        value: 14,
+    )]
+    private string $siret;
 
     #[ORM\Column]
     private bool $siege;
@@ -37,24 +47,24 @@ class Etablissement
         return $this->id;
     }
 
-    public function getSiren(): int
+    public function getSiren(): string
     {
         return $this->siren;
     }
 
-    public function setSiren(int $siren): self
+    public function setSiren(string $siren): self
     {
         $this->siren = $siren;
 
         return $this;
     }
 
-    public function getSiret(): int
+    public function getSiret(): string
     {
         return $this->siret;
     }
 
-    public function setSiret(int $siret): self
+    public function setSiret(string $siret): self
     {
         $this->siret = $siret;
 
