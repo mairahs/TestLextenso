@@ -19,6 +19,10 @@ class Adresse
     #[ORM\Column]
     private bool $siege;
 
+    #[ORM\ManyToOne(inversedBy: 'adresses')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Etablissement $etablissement = null;
+
     public function getId(): int
     {
         return $this->id;
@@ -44,6 +48,18 @@ class Adresse
     public function setSiege(bool $siege): self
     {
         $this->siege = $siege;
+
+        return $this;
+    }
+
+    public function getEtablissement(): ?Etablissement
+    {
+        return $this->etablissement;
+    }
+
+    public function setEtablissement(?Etablissement $etablissement): self
+    {
+        $this->etablissement = $etablissement;
 
         return $this;
     }
